@@ -1,4 +1,4 @@
-const CACHE = "macros-v1";
+const CACHE = "macros-v2";
 const FILES = ["./", "index.html", "css/styles.css", "js/app.js", "js/ai.js", "js/foods.js", "vendor/anthropic.js", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {

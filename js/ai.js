@@ -1,7 +1,7 @@
 // Llamadas a Claude. La clave de API se guarda solo en este dispositivo.
 import Anthropic from "../vendor/anthropic.js";
 
-const MODEL = "claude-opus-5-5";
+const MODEL = "claude-haiku-5-5";
 
 function getClient() {
   const apiKey = localStorage.getItem("fit.apiKey");
@@ -13,11 +13,9 @@ async function askJSON({ system, prompt, schema, effort = "low" }) {
   const client = getClient();
   let response;
   try {
-    response = await client.beta.messages.create({
+    response = await client.messages.create({
       model: MODEL,
       max_tokens: 16000,
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
       system,
       messages: [{ role: "user", content: prompt }],
       output_config: { effort, format: { type: "json_schema", schema } },
